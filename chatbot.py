@@ -6,7 +6,7 @@ import fitz
 app = Flask(__name__)
 
 # Set your OpenAI API key
-openai.api_key = "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"
+openai.api_key = "APIkey "
 
 def extract_pdf_text(pdf_path):
     text = ""
