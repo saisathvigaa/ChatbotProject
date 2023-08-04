@@ -1,0 +1,26 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Chatbot</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Chatbot</h1>
+        <div class="chat-history">
+            {% for message in chat_history %}
+            <div class="chat-item {% if message.role == 'user' %}user-message{% else %}bot-message{% endif %}">
+                <strong>{{ message.role }}:</strong> {{ message.content }}
+            </div>
+            {% endfor %}
+        </div>
+        <form method="post">
+            <input type="text" name="user_input" placeholder="Ask a question">
+            <button type="submit">Ask</button>
+        </form>
+    </div>
+</body>
+</html>
